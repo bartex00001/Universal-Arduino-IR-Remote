@@ -4,6 +4,9 @@
 # define IR_FREQUENCY_KHZ 36
 # define MODE_SWITCH_PIN PIN2
 
+/* Define the delay after transmitting a code in ms
+ * default value is 500ms */
+# define IR_DEAD_TIME_MS 500
 
 /* Define the input buttons
  * You need to specify the pins with buttons connected
@@ -40,6 +43,12 @@
 # endif
 # ifndef MODE_SWITCH_PIN
     # error "MODE_SWITCH_PIN is not defined"
+# endif
+
+// Check if dead time is defined, if not, set it to 500ms
+# ifndef IR_DEAD_TIME_MS
+    # warning "IR_DEAD_TIME_MS is not defined, setting it to 500ms"
+    # define IR_DEAD_TIME_MS 500
 # endif
 
 // Create a list with all defined button pins
