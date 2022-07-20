@@ -38,6 +38,8 @@
  * The diode will flash when recording a signal or transmitting */
 # define DEBUG_LED_PIN A4
 
+
+
 // Check if mandatory settings are defined
 # ifndef IR_RECIVER_PIN
     # error "IR_RECIVER_PIN is not defined"
@@ -89,4 +91,3 @@
 # else
     const bool USED_DEBUG_LED = false;
 # endif
-
