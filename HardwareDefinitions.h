@@ -34,6 +34,9 @@
 # define POTENTIOMETER_PINS A2
 # define POTENTIOMETER_RESET_PINS A3
 
+/* Define the debud led diode pin
+ * The diode will flash when recording a signal or transmitting */
+# define DEBUG_LED_PIN A4
 
 // Check if mandatory settings are defined
 # ifndef IR_RECIVER_PIN
@@ -78,5 +81,12 @@
     # warning POTENTIOMETER_PINS_LIST is not defined
 # elif !defined(POTENTIOMETER_RESET_PINS)
     # warning POTENTIOMETER_RESET_PINS_LIST is not defined
+# endif
+
+// Check if debug led pin is defined
+# ifdef DEBUG_LED_PIN
+    const bool USED_DEBUG_LED = true;
+# else
+    const bool USED_DEBUG_LED = false;
 # endif
 
