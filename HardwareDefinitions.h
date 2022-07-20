@@ -5,8 +5,12 @@
 # define MODE_SWITCH_PIN PIN2
 
 /* Define the delay after transmitting a code in ms
- * default value is 500ms */
+ * Default value is 500ms */
 # define IR_DEAD_TIME_MS 500
+
+/* Define the wait time while recording a signal in ms
+ * Default time is 5s */
+# define IR_RECORD_TIME_MS 5000
 
 /* Define the input buttons
  * You need to specify the pins with buttons connected
@@ -49,6 +53,12 @@
 # ifndef IR_DEAD_TIME_MS
     # warning "IR_DEAD_TIME_MS is not defined, setting it to 500ms"
     # define IR_DEAD_TIME_MS 500
+# endif
+
+// Check if record time is defined, if not, set it to 5000ms
+# ifndef IR_RECORD_TIME_MS
+    # warning "IR_RECORD_TIME_MS is not defined, setting it to 5000ms"
+    # define IR_RECORD_TIME_MS 5000
 # endif
 
 // Create a list with all defined button pins
