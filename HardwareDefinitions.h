@@ -38,6 +38,18 @@
  * The diode will flash when recording a signal or transmitting */
 # define DEBUG_LED_PIN A4
 
+/* Define the raw-buffer length
+ * The raw-buffer is used to store the states of the signal
+ * the default value is 112 */
+# define RAW_BUFFER_LENGTH 112
+
+/* Define the pins for mode switches
+ * For every switch, different signals can be recorded
+ * IMPORTANT: the swiches require an external PULL_DOWN
+ * 
+ * Example of definitions:
+ * # define MODE_SWITCH_PINS PIN_NUM0, PIN_NUM1 */
+# define MODE_SWITCH_PINS A5, A6, A7
 
 
 // Check if mandatory settings are defined
@@ -90,4 +102,25 @@
     const bool USED_DEBUG_LED = true;
 # else
     const bool USED_DEBUG_LED = false;
+# endif
+
+// Check the raw buffer length
+# if RAW_BUFFER_LENGTH < 64
+    # warning "RAW_BUFFER_LENGTH is short and may not capture all signals"
+# elif RAW_BUFFER_LENGTH > 512
+    # warning "RAW_BUFFER_LENGTH is long, this may cause memory issues"
+# endif
+// Check if raw buffer length is defined, if not, set it to default value [112]
+# ifndef RAW_BUFFER_LENGTH
+    # warning "RAW_BUFFER_LENGTH is not defined, setting it to 112"
+    # define RAW_BUFFER_LENGTH 112
+# endif
+
+// Check if mode switch pins are defined, if not, use only one mode
+# ifdef MODE_SWITCH_PINS
+    const bool USED_MODE_SWITCHES = true;
+    const uint8_t MODE_SWITCH_PINS_LIST[] = {MODE_SWITCH_PINS};
+# else
+    const bool USED_MODE_SWITCHES = false;
+    const uint8_t MODE_SWITCH_PINS_LIST[] = {MODE_SWITCH_PIN};
 # endif
