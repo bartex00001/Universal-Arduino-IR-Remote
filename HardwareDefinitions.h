@@ -1,8 +1,8 @@
 // Mandatory settings 
-# define IR_RECIVER_PIN PIN0
-# define IR_TRANSMITER_PIN PIN1
+# define IR_RECIVER_PIN 17
+# define IR_TRANSMITER_PIN 2
 # define IR_FREQUENCY_KHZ 36
-# define MODE_SWITCH_PIN PIN2
+# define MODE_SWITCH_PIN 16
 
 /* Define the delay after transmitting a code in ms
  * Default value is 500ms */
@@ -16,10 +16,10 @@
  * You need to specify the pins with buttons connected
  * Button inputs are not mandatory
  *
- * IMPORTANT: the buttons need an external PULL_DOWN
+ * IMPORTANT: every button needs an external PULL_DOWN
  * Separate the pins with comma, ex:
  * # define BUTTON_PINS PIN_NUM0, PIN_NUM1 */
-# define BUTTON_PINS PIN3, PIN4, PIN5, PIN6, PIN7, A0
+# define BUTTON_PINS 12, 11, 10, 9, 8, 7
 
 /* Define the pins with variable voltage input
  * this can be a potentiometer or any other peripheral
@@ -31,12 +31,12 @@
  * Example of definitions:
  * # define POTENTIOMETER_PINS PIN_NUM0, PIN_NUM1
  * # define POTENTIOMETER_RESET_PINS PIN_NUM2, PIN_NUM3 */
-# define POTENTIOMETER_PINS A2
-# define POTENTIOMETER_RESET_PINS A3
+# define POTENTIOMETER_PINS 18
+# define POTENTIOMETER_RESET_PINS 4
 
 /* Define the debud led diode pin
  * The diode will flash when recording a signal or transmitting */
-# define DEBUG_LED_PIN A4
+# define DEBUG_LED_PIN 5
 
 /* Define the raw-buffer length
  * The raw-buffer is used to store the states of the signal
@@ -49,7 +49,7 @@
  * 
  * Example of definitions:
  * # define MODE_SWITCH_PINS PIN_NUM0, PIN_NUM1 */
-# define MODE_SWITCH_PINS A5, A6, A7
+# define MODE_SWITCH_PINS 15, 14, 13
 
 
 // Check if mandatory settings are defined
